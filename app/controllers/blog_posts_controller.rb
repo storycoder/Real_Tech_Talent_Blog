@@ -1,8 +1,11 @@
 class BlogPostsController < ApplicationController
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
-
   # GET /blog_posts
   # GET /blog_posts.json
+  
+  def your_posts
+  end
+
   def index
     @blog_posts = BlogPost.all
   end
