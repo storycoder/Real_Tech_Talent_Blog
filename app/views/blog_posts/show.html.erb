@@ -6,7 +6,7 @@
 			<%= @blog_post.title %>
 		</div>
 		<div class="panel-body">
-			<strong><p>by <%= @blog_post.author %></strong> <span class="posted-at">posted at: <%= @blog_post.created_at.strftime('%m/%d/%Y %H:%M:%S') %></span><br/>
+			<strong><p>by <%= @blog_post.user.email %></strong> <span class="posted-at">posted at: <%= @blog_post.created_at.strftime('%m/%d/%Y %H:%M:%S') %></span><br/>
 			<p><%= @blog_post.blog_entry %></p>
 		</div>
 	</div>
@@ -25,14 +25,16 @@
 		
 	<div class="panel panel-default">
 		<div class="panel-header">
-			<h4>Comments</h4>
+			<h2>Comments</h2>
 		</div>
 		<% @blog_post.comments.each do |comment| %>
-			<div class="panel-body">
-				<p><strong><%= comment.author %></strong> said: </p> 
-				<p><%= comment.comment_entry %> </p>
-				<p><span class="posted_at"><%= comment.created_at.strftime('%m/%d/%Y %H:%M:%S') %></span></p>
-			</div>
+			<div class="panel panel-success">	
+				<div class="panel-body">
+					<p><strong><%= comment.user.email %></strong> said: </p> 
+					<p><%= comment.comment_entry %> </p>
+					<p><span class="posted_at"><%= comment.created_at.strftime('%m/%d/%Y %H:%M:%S') %></span></p>
+				</div>
+			</div>	
 		<% end %>
 	</div>
 
