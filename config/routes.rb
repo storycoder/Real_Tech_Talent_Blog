@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root 'blog_posts#index'
   get 'your_posts' => 'blog_posts#your_posts'
-  get 'user_posts' => 'blog_posts#user_posts'
  
   devise_for :users
   resources :comments
